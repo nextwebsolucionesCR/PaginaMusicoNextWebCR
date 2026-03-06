@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Politica de privacidad del sitio tributo a Michael Jackson">
+    <title>Privacidad | Michael Jackson Tributo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4D03F;
+            --gold-dark: #B8860B;
+            --bg-dark: #050505;
+            --bg-card: #0D0D0D;
+            --bg-elevated: #141414;
+            --text-primary: #FAFAFA;
+            --text-muted: #A0A0A0;
+        }
+
+        .dark-mode {
+            --bg-dark: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --bg-elevated: #F5F5F5;
+            --text-primary: #0A0A0A;
+            --text-muted: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.125rem, 4vw, 1.75rem);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.75rem 1rem;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .nav-container {
+                padding: 1rem 2rem;
+            }
+        }
+
+        .dark-mode .nav-container {
+            background: rgba(250, 250, 250, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-toggle {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--gold-primary);
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Floating Contact Buttons - Bottom Left */
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 998;
+        }
+
+        .floating-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+        }
+
+        .btn-phone {
+            background: var(--gold-primary);
+        }
+
+        .floating-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .privacy-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .privacy-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .notice-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .notice-box h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .notice-box p {
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-content h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            margin: 2rem 0 1rem;
+            font-size: 1.125rem;
+        }
+
+        .privacy-content p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* NextWeb Watermark */
+        .nw-watermark {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(13, 13, 13, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--gold-primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .dark-mode .nw-watermark {
+            background: rgba(250, 250, 250, 0.9);
+            border-color: var(--gold-primary);
+        }
+
+        .nw-watermark:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.3);
+            background: rgba(13, 13, 13, 0.98);
+        }
+
+        .dark-mode .nw-watermark:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .nw-watermark-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+        }
+
+        .nw-watermark-text {
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nw-watermark-text span {
+            color: var(--gold-primary);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .nw-watermark {
+                bottom: 85px;
+                right: 15px;
+                padding: 6px 12px;
+            }
+
+            .nw-watermark-text {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-container">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">MICHAEL</a>
+            <div class="nav-right">
+                <button class="nav-toggle" id="lang-toggle" aria-label="Cambiar idioma">
+                    <span class="lang-text">ES</span>
+                </button>
+                <button class="nav-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                    <span class="theme-label">☾</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/1234567890" class="floating-btn btn-whatsapp" target="_blank" rel="noopener"
+            aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+        </a>
+        <a href="tel:+1234567890" class="floating-btn btn-phone" aria-label="Llamar">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+            </svg>
+        </a>
+    </div>
+
+    <main class="privacy-container">
+        <h1 class="privacy-title" data-i18n="privacy_title">Politica de Privacidad</h1>
+
+        <div class="notice-box">
+            <h2 data-i18n="notice_title">Aviso Importante</h2>
+            <p data-i18n="notice_text">Esta pagina web NO es oficial y solo es una pagina web de ejemplo creada con
+                fines educativos y de demostracion. No tiene ninguna afiliacion con Michael Jackson, su patrimonio, sus
+                herederos o cualquier entidad relacionada con el artista.</p>
+            <p data-i18n="notice_text2">Todas las imagenes, videos y contenido multimedia utilizados en este sitio
+                pertenecen a sus respectivos propietarios y se utilizan unicamente con fines ilustrativos.</p>
+        </div>
+
+        <div class="privacy-content">
+            <h3 data-i18n="privacy_section1">1. Informacion Recopilada</h3>
+            <p data-i18n="privacy_text1">Este sitio web de ejemplo no recopila ni almacena informacion personal de los
+                visitantes. Cualquier dato almacenado en el navegador (como preferencias de idioma o tema) es puramente
+                local y no se transmite a ningun servidor.</p>
+
+            <h3 data-i18n="privacy_section2">2. Cookies</h3>
+            <p data-i18n="privacy_text2">Este sitio utiliza almacenamiento local del navegador (localStorage) para
+                recordar las preferencias del usuario, como el idioma seleccionado y el modo oscuro/claro. Estas
+                preferencias no se comparten con terceros.</p>
+
+            <h3 data-i18n="privacy_section3">3. Contenido de Terceros</h3>
+            <p data-i18n="privacy_text3">Este sitio incrusta contenido de plataformas externas como Spotify, YouTube y
+                Vimeo. Estos servicios pueden tener sus propias politicas de privacidad y pueden recopilar datos segun
+                sus propios terminos.</p>
+
+            <h3 data-i18n="privacy_section4">4. Contacto</h3>
+            <p data-i18n="privacy_text4">Este es un sitio de demostracion. Los formularios de contacto y el chat de
+                Tawk.to son funcionales pero deben considerarse parte de una demostracion tecnica.</p>
+        </div>
+
+        <a href="index.html" class="back-link" data-i18n="back_home">← Volver al inicio</a>
+    </main>
+
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69633d7c987b03197cb20051/1jelqgcbd';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <script>
+        // Translations
+        const translations = {
+            es: {
+                privacy_title: "Politica de Privacidad",
+                notice_title: "Aviso Importante",
+                notice_text: "Esta pagina web NO es oficial y solo es una pagina web de ejemplo creada con fines educativos y de demostracion. No tiene ninguna afiliacion con Michael Jackson, su patrimonio, sus herederos o cualquier entidad relacionada con el artista.",
+                notice_text2: "Todas las imagenes, videos y contenido multimedia utilizados en este sitio pertenecen a sus respectivos propietarios y se utilizan unicamente con fines ilustrativos.",
+                privacy_section1: "1. Informacion Recopilada",
+                privacy_text1: "Este sitio web de ejemplo no recopila ni almacena informacion personal de los visitantes.",
+                privacy_section2: "2. Cookies",
+                privacy_text2: "Este sitio utiliza almacenamiento local del navegador para recordar las preferencias del usuario.",
+                privacy_section3: "3. Contenido de Terceros",
+                privacy_text3: "Este sitio incrusta contenido de plataformas externas como Spotify, YouTube y Vimeo.",
+                privacy_section4: "4. Contacto",
+                privacy_text4: "Este es un sitio de demostracion.",
+                back_home: "← Volver al inicio"
+            },
+            en: {
+                privacy_title: "Privacy Policy",
+                notice_title: "Important Notice",
+                notice_text: "This website is NOT official and is only an example website created for educational and demonstration purposes. It has no affiliation with Michael Jackson, his estate, his heirs, or any entity related to the artist.",
+                notice_text2: "All images, videos, and multimedia content used on this site belong to their respective owners and are used for illustrative purposes only.",
+                privacy_section1: "1. Information Collected",
+                privacy_text1: "This example website does not collect or store personal information from visitors.",
+                privacy_section2: "2. Cookies",
+                privacy_text2: "This site uses local browser storage to remember user preferences.",
+                privacy_section3: "3. Third-Party Content",
+                privacy_text3: "This site embeds content from external platforms like Spotify, YouTube, and Vimeo.",
+                privacy_section4: "4. Contact",
+                privacy_text4: "This is a demonstration site.",
+                back_home: "← Back to home"
+            },
+            pt: {
+                privacy_title: "Politica de Privacidade",
+                notice_title: "Aviso Importante",
+                notice_text: "Este site NAO e oficial e e apenas um site de exemplo criado para fins educacionais e de demonstracao.",
+                notice_text2: "Todas as imagens, videos e conteudo multimidia usados neste site pertencem aos seus respectivos proprietarios.",
+                privacy_section1: "1. Informacoes Coletadas",
+                privacy_text1: "Este site de exemplo nao coleta nem armazena informacoes pessoais dos visitantes.",
+                privacy_section2: "2. Cookies",
+                privacy_text2: "Este site usa armazenamento local do navegador para lembrar as preferencias do usuario.",
+                privacy_section3: "3. Conteudo de Terceiros",
+                privacy_text3: "Este site incorpora conteudo de plataformas externas como Spotify, YouTube e Vimeo.",
+                privacy_section4: "4. Contato",
+                privacy_text4: "Este e um site de demonstracao.",
+                back_home: "← Voltar ao inicio"
+            },
+            fr: {
+                privacy_title: "Politique de Confidentialite",
+                notice_title: "Avis Important",
+                notice_text: "Ce site web N'est PAS officiel et est uniquement un site web d'exemple cree a des fins educatives et de demonstration.",
+                notice_text2: "Toutes les images, videos et contenus multimedias utilises sur ce site appartiennent a leurs proprietaires respectifs.",
+                privacy_section1: "1. Informations Collectees",
+                privacy_text1: "Ce site web d'exemple ne collecte ni ne stocke d'informations personnelles des visiteurs.",
+                privacy_section2: "2. Cookies",
+                privacy_text2: "Ce site utilise le stockage local du navigateur pour memoriser les preferences de l'utilisateur.",
+                privacy_section3: "3. Contenu Tierce",
+                privacy_text3: "Ce site integre du contenu de plateformes externes comme Spotify, YouTube et Vimeo.",
+                privacy_section4: "4. Contact",
+                privacy_text4: "Ceci est un site de demonstration.",
+                back_home: "← Retour a l'accueil"
+            },
+            zh: {
+                privacy_title: "隐私政策",
+                notice_title: "重要通知",
+                notice_text: "本网站不是官方网站，仅为教育和演示目的而创建的示例网站。",
+                notice_text2: "本网站使用的所有图像、视频和多媒体内容均属于其各自所有者。",
+                privacy_section1: "1. 收集的信息",
+                privacy_text1: "此示例网站不收集或存储访客的个人信息。",
+                privacy_section2: "2. Cookies",
+                privacy_text2: "本网站使用浏览器的本地存储来记住用户偏好。",
+                privacy_section3: "3. 第三方内容",
+                privacy_text3: "本网站嵌入来自Spotify、YouTube和Vimeo等外部平台的内容。",
+                privacy_section4: "4. 联系",
+                privacy_text4: "这是一个演示网站。",
+                back_home: "← 返回首页"
+            }
+        };
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeLabel = themeBtn ? themeBtn.querySelector('.theme-label') : null;
+
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        let initialTheme = 'light';
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+            initialTheme = savedTheme;
+        } else {
+            initialTheme = systemPrefersDark ? 'dark' : 'light';
+        }
+
+        document.body.classList.toggle('dark-mode', initialTheme === 'dark');
+
+        function updateThemeUI(isDark) {
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            if (themeLabel) {
+                themeLabel.textContent = isDark ? '☀' : '☾';
+            }
+        }
+
+        updateThemeUI(initialTheme === 'dark');
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const isDark = !document.body.classList.contains('dark-mode');
+                document.body.classList.toggle('dark-mode', isDark);
+                updateThemeUI(isDark);
+            });
+        }
+
+        // Language Toggle
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const langTextSpan = langToggleBtn ? langToggleBtn.querySelector('.lang-text') : null;
+
+        const availableLangs = Object.keys(translations);
+        const DEFAULT_LANG = translations.es ? 'es' : (availableLangs[0] || 'es');
+
+        let currentLang = localStorage.getItem('language') || DEFAULT_LANG;
+        if (!translations[currentLang]) currentLang = DEFAULT_LANG;
+
+        function getText(lang, key) {
+            if (translations[lang] && translations[lang][key] != null) return translations[lang][key];
+            if (translations[DEFAULT_LANG] && translations[DEFAULT_LANG][key] != null) return translations[DEFAULT_LANG][key];
+            return null;
+        }
+
+        function updateLanguage(lang) {
+            if (!translations[lang]) lang = DEFAULT_LANG;
+
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const value = getText(lang, key);
+                if (value == null) return;
+                element.textContent = value;
+            });
+
+            if (langTextSpan) {
+                langTextSpan.textContent = lang.toUpperCase();
+            }
+
+            localStorage.setItem('language', lang);
+            currentLang = lang;
+        }
+
+        updateLanguage(currentLang);
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', () => {
+                const idx = availableLangs.indexOf(currentLang);
+                const nextLang = availableLangs[(idx + 1) % availableLangs.length] || DEFAULT_LANG;
+                updateLanguage(nextLang);
+            });
+        }
+
+        // ================================
+        // Anti-Inspection Script
+        // ================================
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            // Disable F12
+            if (e.keyCode == 123) {
+                e.preventDefault();
+                return false;
+            }
+            // Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) {
+                e.preventDefault();
+                return false;
+            }
+            // Disable Ctrl+U
+            if (e.ctrlKey && e.keyCode == 85) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+    <!-- Watermark -->
+    <a href="https://nextwebcr.com" target="_blank" rel="noopener" class="nw-watermark">
+        <img src="img/logo.png" alt="NextWeb CR" class="nw-watermark-logo">
+        <span class="nw-watermark-text">Desarrollado por <span>NextWeb CR</span></span>
+    </a>
+</body>
+
+
+</html>
